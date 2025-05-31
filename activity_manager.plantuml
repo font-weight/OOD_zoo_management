@@ -1,0 +1,40 @@
+@startuml
+(*) --> "Open management system"
+
+if "Manage animals?" then
+  --> "Choose: Add / Edit / Remove animal"
+  if "Add animal?" then
+    --> "Enter animal details"
+    --> "Save to database"
+  else
+    if "Edit animal?" then
+      --> "Search and edit animal info"
+      --> "Save changes"
+    else
+      --> "Select animal to remove"
+      --> "Confirm deletion"
+      --> "Remove from system"
+    endif
+  endif
+
+else
+  if "Manage feeding schedule?" then
+    --> "Select animal"
+    --> "Edit schedule (food/time)"
+    --> "Save schedule"
+  else
+    if "Manage enclosures?" then
+      --> "Choose: Assign animal / Request cleaning"
+      if "Assign animal?" then
+        --> "Select animal and enclosure"
+        --> "Assign animal"
+      else
+        --> "Select enclosure"
+        --> "Submit cleaning request"
+      endif
+    endif
+  endif
+endif
+
+--> (*)
+@enduml

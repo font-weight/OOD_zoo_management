@@ -1,0 +1,59 @@
+@startuml
+actor "Zoo Keeper" as Keeper
+actor "Veterinarian" as Vet
+actor "Manager" as Manager
+
+usecase "Feed Animals" as feed
+usecase "Check Feeding Schedule" as check_schedule
+usecase "Update Feeding Records" as update_records
+usecase "Clean enclosure" as clean_enclosure
+
+usecase "Manage animals" as manage_animals
+usecase "Add animal" as add_animal
+usecase "Edit animal info" as edit_animal
+usecase "Remove animal" as remove_animal
+
+usecase "Manage feeding schedule" as manage_schedule
+usecase "Edit feeding schedule" as edit_schedule
+
+usecase "Manage enclosures" as manage_enclosures
+usecase "Assign animal to enclosure" as assign_enclosure
+usecase "Request enclosure cleaning" as request_enclosure_cleaning
+
+usecase "Monitor animal health" as monitor_health
+usecase "Record health info" as record_health
+usecase "Check records" as check_records
+
+Keeper -- feed
+Keeper -- check_schedule
+Keeper -- update_records
+Keeper -- clean_enclosure
+
+Vet -- monitor_health
+
+Vet -- record_health
+Vet -- check_records
+
+Manager -- manage_animals
+Manager -- add_animal
+Manager -- edit_animal
+Manager -- remove_animal
+Manager -- manage_enclosures
+Manager -- assign_enclosure
+Manager -- request_enclosure_cleaning
+Manager -- manage_schedule
+Manager -- edit_schedule
+
+feed --> update_records: <<invoke>>
+
+manage_animals --> add_animal: <<invoke>>
+manage_animals --> edit_animal: <<invoke>>
+manage_animals --> remove_animal: <<invoke>>
+
+manage_schedule --> edit_schedule: <<invoke>>
+
+manage_enclosures --> assign_enclosure: <<invoke>>
+manage_enclosures --> request_enclosure_cleaning: <<invoke>>
+
+monitor_health --> record_health: <<invoke>>
+@enduml

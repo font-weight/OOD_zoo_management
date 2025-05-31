@@ -1,0 +1,15 @@
+@startuml
+actor Manager
+participant "Animal"
+participant "Enclosure"
+participant "FeedingSchedule"
+
+Manager -> Animal : add_animal()
+Manager -> Animal : manage_animal_info()
+Manager -> Animal : remove_animal()
+
+Manager -> Enclosure : assign_enclosure()
+Manager -> Enclosure : change_status()
+
+Manager -> FeedingSchedule : updateSchedule()
+@enduml

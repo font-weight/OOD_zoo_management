@@ -1,0 +1,21 @@
+@startuml
+(*) --> "Login as Keeper"
+if "Feed or clean?"
+--> [feed] "Check feeding schedule"
+--> "Select animal to feed"
+--> "Click on feed button"
+--> "Feed the animal"
+--> (*)
+
+else
+--> [clean] "Go to assigned enclosure"
+--> "Check cleanliness status"
+if "Dirty?"
+  --> [yes] "Clean enclosure"
+  --> "Update cleanliness status"
+  --> (*)
+else
+  --> [no] "Login as Keeper"
+endif
+
+@enduml

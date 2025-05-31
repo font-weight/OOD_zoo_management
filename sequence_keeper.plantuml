@@ -1,0 +1,17 @@
+@startuml
+actor Keeper
+participant "FeedingSchedule" as Schedule
+participant "Animal"
+participant "Enclosure"
+
+' Feeding
+Keeper -> Schedule : check_feeding_schedule()
+Schedule --> Keeper : food, time
+
+Keeper -> Animal : feed()
+Animal -> Animal : update_feeding_history(feeding_record)
+
+' Cleaning
+Keeper -> Enclosure : clean()
+Enclosure -> Enclosure : change_status()
+@enduml

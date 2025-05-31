@@ -1,0 +1,9 @@
+@startuml
+actor Vet
+participant "Animal"
+
+Vet -> Animal : check_health()
+Animal --> Vet : health_status
+
+Vet -> Animal : update_health()
+@enduml

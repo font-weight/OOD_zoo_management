@@ -1,0 +1,11 @@
+@startuml
+
+(*) --> "Login as veterinarian"
+--> "Select animal"
+--> "Conduct health check"
+--> "Record health observations"
+--> "Enter new health data"
+--> "Save health record"
+--> (*)
+
+@enduml

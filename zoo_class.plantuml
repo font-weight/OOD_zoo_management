@@ -1,0 +1,73 @@
+@startuml
+class Keeper {
+    name : String
+}
+
+class Vet {
+    name : String
+}
+
+class Manager {
+    name : String
+}
+
+class Animal {
+    species : String
+    name : String
+    age : int
+    feeding_history : List<String>
+    health_status : String
+    health_records : List<String>
+    feeding_schedule : FeedingSchedule
+
+    feed()
+    
+
+    check_health(): String
+    update_health()
+
+    manage_animal_info()
+    add_animal()
+    remove_animal()
+}
+
+class Enclosure {
+    id : int
+    name : String
+    enclosure_type : String
+    assigned_animal : Animal
+    cleanliness_status : String
+    
+
+    clean()
+    assign_animal(animal:Animal)
+    change_status()
+}
+
+class FeedingSchedule {
+    food : String
+    time_to_feed : String
+
+    updateSchedule()
+    check_feeding_schedule(): String
+}
+
+Keeper ..> Animal : > feeds
+Keeper ..> Enclosure : > cleans
+Keeper ..> FeedingSchedule : > checks schedule
+
+Manager ..> Animal : > manages animal info
+Manager ..> Animal : > adds animal
+Manager ..> Animal : > removes animal   
+
+Manager ..> Enclosure : > assigns animal to en.
+Manager ..> Enclosure : > request cleaning
+
+Manager ..> FeedingSchedule : > updates schedule
+
+Vet ..> Animal : > checks health
+Vet ..> Animal : > updates health
+
+Animal *-- FeedingSchedule
+Enclosure o-- Animal
+@enduml
