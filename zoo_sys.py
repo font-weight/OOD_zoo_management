@@ -118,12 +118,6 @@ class Manager:
     def __init__(self, name):
         self.name = name
 
-    def assign_animal_to_enclosure(self, enclosure, animal):
-        enclosure.assign_animal(animal)
-
-    def change_enclosure_status(self, enclosure, status):
-        enclosure.change_status(status)
-
 
 
 # Sample data
@@ -365,33 +359,11 @@ def manager_menu():
         
 
         
-        # print("1. Assign Animal to Enclosure")
-        # print("2. Change Enclosure Status")
-        # print("3. Exit")
-        # choice = input("Choose an action: ")
+      
 
-        # if choice == "1":
-        #     for i, e in enumerate(enclosures):
-        #         print(f"{i+1}. {e.name}")
-        #     e_idx = int(input("Select enclosure: ")) - 1
-        #     for i, a in enumerate(animals):
-        #         print(f"{i+1}. {a.name}")
-        #     a_idx = int(input("Select animal: ")) - 1
-        #     manager.assign_animal_to_enclosure(enclosures[e_idx], animals[a_idx])
 
-        # elif choice == "2":
-        #     for i, e in enumerate(enclosures):
-        #         print(f"{i+1}. {e.name} (Status: {e.cleanliness_status})")
-        #     e_idx = int(input("Select enclosure: ")) - 1
-        #     status = input("Enter new status (Clean/Dirty/Needs Maintenance): ")
-        #     manager.change_enclosure_status(enclosures[e_idx], status)
 
-        # elif choice == "3":
-        #     break
-        # else:
-        #     print("Invalid choice.")
 
-# Entry point
 print("Welcome to the Zoo Management System!")
 username = input("Enter your name: ").strip()
 
