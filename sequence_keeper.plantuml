@@ -9,7 +9,7 @@ Keeper -> Schedule : check_feeding_schedule()
 Schedule --> Keeper : food, time
 
 Keeper -> Animal : feed()
-Animal -> Animal : update_feeding_history(feeding_record)
+Animal -> Animal : update_feeding_history()
 
 ' Cleaning
 Keeper -> Enclosure : clean()
