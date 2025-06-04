@@ -5,13 +5,24 @@ participant "Animal"
 participant "Enclosure"
 
 ' Feeding
-Keeper -> Schedule : check_feeding_schedule()
-Schedule --> Keeper : food, time
+alt User chooses animal menu
+    Keeper -> Animal : ask for FeedingSchedule
+    Animal --> Keeper : FeedindSchedule
+    activate Schedule
+    Keeper -> Schedule : check_feeding_schedule()
+    Schedule --> Keeper : food, time
+    deactivate Schedule
 
-Keeper -> Animal : feed()
-Animal -> Animal : update_feeding_history()
+    Keeper -> Animal : feed()
+    Animal -> Animal : update_feeding_history()
+
+else
+end alt
 
 ' Cleaning
-Keeper -> Enclosure : clean()
-Enclosure -> Enclosure : change_status()
+alt User chooses enclosure menu
+    Keeper -> Enclosure : clean()
+    Enclosure -> Enclosure : change_status(String)
+else
+end alt
 @enduml
