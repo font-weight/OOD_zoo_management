@@ -1,5 +1,5 @@
 @startuml
-(*) --> "Open management system"
+(*) --> "Log in as manager"
 
 if "Manage animals?" then
   --> "Choose: Add / Edit / Remove animal"
